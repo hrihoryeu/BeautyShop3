@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+Sign Up
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="page-name-div">
+            <h1 class="page-name-text">SIGN UP</h1>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="user-form">
+                <div class="sign-up">
+                    <div class="sign-up-top">
+                        {{ form.username|as_crispy_field }}
+                    </div>
+                    <div class="sign-up-top">
+                        {{ form.password|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="sign-up">
+                    <div class="sign-up-bottom">
+                        {{ form.first_name|as_crispy_field }}
+                    </div>
+                    <div class="sign-up-bottom">
+                        {{ form.last_name|as_crispy_field }}
+                    </div>
+                    <div class="sign-up-bottom">
+                        {{ form.email|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="btn-log-in">
+                    <button type="submit" class="btn btn-success">SIGN UP</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

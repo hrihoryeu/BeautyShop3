@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Your shopping cart
+{% endblock %}
+{% block content %}
+    <div class="page-name-div">
+        <h1 class="page-name-text">YOUR SHOPPING CART</h1>
+    </div>
+    <div class="container">
+        <table width="100%">
+            <thead>
+            <tr>
+                <th class="table-head">Image</th>
+                <th class="table-head">Product</th>
+                <th class="table-head">Quantity</th>
+                <th class="table-head">Remove</th>
+                <th class="table-head">Unit price</th>
+                <th class="table-head">Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in cart %}
+                {% with product=item.product %}
+                    <tr>
+                        <td class="table-content">
+                            <a href="{{ product.get_absolute_url }}">
+                                <img class="table-image" src="
+                                    {% if product.image %}
+                                        {{ product.image.url }}
+                                    {% else %}
+                                        {% static "img/no_image.png" %}
+                                    {% endif %}">
+                            </a>
+                        </td>
+                        <td class="table-content">{{ product.title }}</td>
+                        <td class="table-content">{{ item.quantity }}</td>
+                        <td class="table-content"><a class="remove" href="{% url "cart:cart_remove" product.id%}">Remove</a></td>
+                        <td class="table-content">${{ item.price }}</td>
+                        <td class="table-content">${{ item.total_price }}</td>
+                    </tr>
+                {% endwith %}
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="table-price-div">
+            <h3 class="table-price-text">Total price:</h3>
+            <h3 class="table-price-text">${{ cart.get_total_price }}</h3>
+        </div>
+        <div class="table-footer-div">
+            <h3 class="table-footer-text"><a class="table-footer-text" href="{% url "shop:product_list" %}">Continue shopping</a></h3>
+            <h3 class="table-footer-text"><a class="table-footer-text" href="{% url "orders:order_create" %}">Checkout</a></h3>
+        </div>
+    </div>
+{% endblock %}

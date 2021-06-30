@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="checkout-div">
+            <h1 class="page-name-text">CHECKOUT</h1>
+        </div>
+        <div class="checkout-div">
+            <h3>Your order</h3>
+        </div>
+        <div class="order-info">
+            <ul>
+                {% for item in cart %}
+                    <li>
+                        {{ item.quantity }}x {{ item.product }}
+                        <span>${{ item.total_price }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+            <p>Total: ${{ cart.get_total_price }}</p>
+        </div>
+        <form action="." method="post" class="order-form">
+            {% csrf_token %}
+            <div class="form-1-row">
+                <div class="form-top">
+                    {{ form.first_name|as_crispy_field }}
+                </div>
+                <div class="form-top">
+                    {{ form.last_name|as_crispy_field }}
+                </div>
+                <div class="form-top">
+                    {{ form.email|as_crispy_field }}
+                </div>
+            </div>
+            <div class="form-1-row">
+                <div class="form-top">
+                    {{ form.address|as_crispy_field }}
+                </div>
+                <div class="form-top">
+                    {{ form.postal_code|as_crispy_field }}
+                </div>
+                <div class="form-top">
+                    {{ form.city|as_crispy_field }}
+                </div>
+            </div>
+            {{ form.telegram|as_crispy_field }}
+            <button class="btn btn-success btn-checkout" type="submit">Place order</button>
+        </form>
+    </div>
+{% endblock %}

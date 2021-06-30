@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}My shop{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700;800&display=swap" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+</head>
+<body class="body">
+<header class="header">
+    <span class="top">
+        <a class="top" href="{% url "main:shop_home" %}">HOME</a>
+    </span>
+    <span class="top"><a class="top" href="{% url "shop:product_list" %}">CATALOGUE</a></span>
+    <span class="top-not-scale">
+        {% with total_items=cart|length %}
+            {% if cart|length > 0 %}
+                Your cart:
+                <a class="top" href="{% url "cart:cart_detail" %}">
+                    {{ total_items }} item{{ total_items|pluralize }},
+                    ${{ cart.get_total_price }}
+                </a>
+            {% else %}
+                Your cart is empty.
+            {% endif %}
+        {% endwith %}
+    </span>
+    {% if request.user.is_authenticated %}
+        {% if request.user.username == 'admin' %}
+            <span><a class="top" href="{% url 'admin_panel' %}">admin panel</a></span>
+        {% endif %}
+        <span class="top-not-scale">Hi, {{ request.user.username }}</span>
+        <span class="top"><a class="top" href="{% url 'beautyshop-sign-out' %}">LOG OUT</a></span>
+    {% else %}
+        <span class="top"><a class="top" href="{% url 'beautyshop-sign-up' %}">SIGN UP</a></span>
+        <span class="top"><a class="top" href="{% url 'beautyshop-log-in' %}">LOG IN</a></span>
+    {% endif %}
+</header>
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>

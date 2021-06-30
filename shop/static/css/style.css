@@ -1,0 +1,339 @@
+ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+.body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20pt;
+    background-color: #e5efed;
+}
+
+.header {
+    height: 12vh;
+    background-color: #3eb58f;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.top {
+    color: #e5efed;
+    font-weight: bold;
+    transition: 1s ease-in-out;
+    text-decoration: none;
+}
+
+.top:visited {
+    color: #e5efed;
+    font-weight: bold;
+}
+
+.top:hover {
+    color: white;
+    transform: scale(1.03);
+    transition: 0.8s ease-in-out;
+}
+
+.top-not-scale {
+    color: #e5efed;
+    font-weight: bold;
+}
+
+.cart:hover {
+    color: white;
+    transform: scale(1);
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidebar {
+    background-color: #68cba4;
+    width: 20vw;
+    padding: 4vh 2vw 0;
+}
+
+.shop {
+    background-color: #e5efed;
+    width: 80vw;
+    padding: 4vh 10vw 0;
+}
+
+.page-name-div {
+    display: flex;
+    justify-content: space-around;
+    margin: 5vh auto;
+}
+
+.page-name-text {
+    font-weight: bold;
+    font-size: 50pt;
+    color: black;
+}
+
+.choose-name-div {
+    margin-top: 1vh;
+    color: black;
+}
+
+.choose-name-text {
+    font-weight: bold;
+    font-size: 30pt;
+    color: #373737;
+}
+
+.product-name-div {
+    display: flex;
+    justify-content: space-around;
+    margin: 1vh auto;
+}
+
+.product-choose-div {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+.product-name-text {
+    font-weight: bold;
+    font-size: 50pt;
+}
+
+.form-group {
+    text-align: center;
+}
+.form-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.mb-3 {
+    text-align: center;
+}
+
+.choose-a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #434343;
+}
+
+.choose-a:visited {
+    color: #434343;
+}
+
+.choose-a:hover {
+    color: black;
+}
+
+.cards {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.card-item {
+    width: 25vw;
+    margin-top: 5vh;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-item:hover {
+    box-shadow: 0 0 20px #3eb58f;
+}
+
+.card-name-div {
+    margin-top: 1vh;
+}
+
+.card-name-text {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #373737;
+    font-weight: bold;
+
+}
+
+.card-name-text:hover {
+    color: black;
+}
+
+.product-image {
+    height: 100%;
+}
+
+.card-header-css {
+    width: 25vw;
+    height: 40vh;
+}
+
+.card-description {
+    font-size: 12pt;
+}
+
+.card-footer {
+    padding-bottom: 1.5vh;
+}
+
+.home-page-name-div {
+    display: flex;
+    justify-content: space-around;
+    margin: 5.5vh auto;
+}
+
+.home-page-name-text {
+    font-weight: bold;
+    font-size: 70pt;
+    color: black;
+}
+
+.home-footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15vh;
+}
+
+.product-detail {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail-left {
+    margin-top: 8vh;
+    width: 40vw;
+    height: 72.5vh;
+}
+
+.detail-right {
+    margin-top: 8vh;
+    width: 45vw;
+    height: 72.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.detail-image {
+    width: 100%;
+    height: 100%;
+}
+
+.detail-description {
+    font-size: 18pt;
+}
+
+.detail-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-head {
+    text-align: center;
+}
+
+.table-content {
+    text-align: center;
+}
+
+.table-image {
+    width: 20vw;
+    height: 35vh;
+}
+
+.table-price-div {
+    display: flex;
+    justify-content: space-around;
+    margin: 5vh 0;
+}
+
+.table-price-text {
+    font-weight: bold;
+}
+
+.table-footer-div {
+    display: flex;
+    justify-content: space-around;
+    margin: 5vh 0;
+}
+
+.table-footer-text {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #373737;
+}
+
+.table-footer-text:hover {
+    color: black;
+}
+
+.remove {
+    color: #9d4747;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.remove:hover {
+    color: red;
+}
+
+.checkout-div {
+    display: flex;
+    justify-content: space-around;
+    margin: 3vh 0;
+}
+
+.form-1-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-top {
+    width: 27vw;
+}
+
+.log-in {
+    display: flex;
+    justify-content: space-around;
+}
+
+.log-in-top {
+    width: 30vw;
+}
+
+.btn-log-in {
+    width: 10vw;
+    margin: auto;
+}
+
+.admin-data {
+    text-decoration: none;
+    color: #373737;
+}
+
+.admin-data:hover {
+    color: black;
+}
+
+.sign-up {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sign-up-top {
+    width: 42.5vw;
+}
+
+.sign-up-bottom {
+    width: 27vw;
+}

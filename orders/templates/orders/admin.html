@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Admin panel{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="page-name-div">
+            <h1 class="page-name-text">ADMIN PANEL</h1>
+        </div>
+        <p><a class="admin-data" href="{% url 'admin:index' %}">Data management</a></p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>save JSON data:</p>
+            <p>
+                <select class="form-select" size="1" name="choose">
+                    <option value="products">Products</option>
+                    <option value="orders">Orders</option>
+                </select>
+            </p>
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+    </div>
+{% endblock %}

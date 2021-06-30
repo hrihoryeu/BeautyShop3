@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="product-detail">
+            <div class="detail-left">
+                <img class="detail-image" src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+            </div>
+            <div class="detail-right">
+                <div>
+                    <div class="choose-name-div">
+                        <h1 class="choose-name-text">{{ product.title }}</h1>
+                    </div>
+                    {% if product.warehouse.stock == 0%}
+                        <span ><h3 class="detail-description">Out of stock</h3></span>
+                        <h3 class="detail-description">{{ product.full_description|linebreaks }}</h3>
+                </div>
+                    {% else %}
+                        <h3 class="detail-description">{{ product.full_description|linebreaks }}</h3>
+                </div>
+                        <form class="detail-footer" action="{% url 'cart:cart_add' product.id %}" method="POST">
+                            {% csrf_token %}
+                            <div>
+                                <h3 class="detail-description">Price: ${{ product.price }}</h3>
+                            </div>
+                            <div>
+                                <h3 class="detail-description">Stock: {{ product.warehouse.stock }}</h3>
+                            </div>
+                            <input class="form-group" type="number" name="quantity" value='0' min="0" max="{{ product.warehouse.stock }}">
+                            <button type="submit" class="btn btn-success">Add to cart</button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
