@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from easter_egg import views as easter_views
 
 from django.contrib.auth.views import LoginView, LogoutView
 
@@ -29,6 +30,7 @@ urlpatterns = [
     path('cart/', include(('cart.urls', 'cart'), namespace='cart')),
     path('orders/', include(('orders.urls', 'orders'), namespace='orders')),
     path('catalogue/', include(('shop.urls', 'shop'), namespace='shop')),
+    path('easter-egg/', easter_views.main, name='easter'),
     path('', include(('main.urls', 'main'), namespace='main')),
     # USER
     path('log-in/', views.login_view,

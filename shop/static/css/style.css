@@ -12,6 +12,8 @@ li {
     font-family: 'Montserrat', sans-serif;
     font-size: 20pt;
     background-color: #e5efed;
+    display: flex;
+    flex-direction: column;
 }
 
 .header {
@@ -336,4 +338,12 @@ li {
 
 .sign-up-bottom {
     width: 27vw;
+}
+
+.bottom-footer {
+    height: 12vh;
+    background-color: #68cba4;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
